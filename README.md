@@ -1,190 +1,224 @@
-# Onecredit Fullstack - Complete Project and Pages Documentation
+# Onecredit Fullstack - Project Concept for Evaluation
 
-This branch is documentation-only and intentionally contains only this README file.
+This branch is intentionally documentation-only and contains a single file: `README.md`.
 
-## Branch Purpose
+## 1. Executive Summary
 
-- Branch name: `docs/pages-documentation`
-- Goal: provide a single, complete reference for product pages, workflows, architecture, and setup
-- Scope: frontend advisor hub experience, integrations, data behavior, and operational notes
+Onecredit Fullstack (implemented here as a FieldDesk Advisor Hub experience) is an advisor-first agricultural decision platform.
 
-## Project Overview
+Core idea:
+- Most agritech products target farmers directly.
+- Adoption is often low because farmers trust local advisors more than unfamiliar apps.
+- This project equips the advisor (FPO officer/agronomist) with a high-leverage tool so one trained advisor can improve outcomes for hundreds of farmers.
 
-Onecredit Fullstack (FieldDesk Advisor Hub implementation) is an advisor-first agricultural decision platform designed for:
+In one line:
+Advisor tool first, farmer impact at scale.
+
+## 2. Problem Statement
+
+Current field reality in many regions:
+- One advisor handles 500 to 900 farmers.
+- Prioritization is mostly manual, memory-based, and reactive.
+- Soil recommendations are often generic and not cost-optimized.
+- Follow-up communication lacks structure and measurable feedback.
+
+Resulting pain points:
+- Critical farmers may be missed.
+- Input cost waste increases.
+- Recommendation adoption is inconsistent.
+- Institutions cannot prove advisor impact clearly.
+
+## 3. Why This Concept Matters
+
+The project reframes the problem from "farmer app adoption" to "advisor decision quality and throughput."
+
+Conceptual shift:
+- Old model: App -> Farmer (high behavior change burden)
+- Proposed model: Platform -> Advisor -> Farmers (trust channel already exists)
+
+Evaluation value:
+- Lower adoption friction
+- Faster deployment through existing institutions
+- Measurable operational metrics from day 1
+
+## 4. Target Users and Beneficiaries
+
+Primary users:
 - FPO officers
 - Extension agronomists
 - Field advisors
 
-The product focuses on turning fragmented field operations into a structured workflow:
-1. Identify high-priority farmers quickly
-2. Interpret soil data into practical recommendations
-3. Share recommendations via WhatsApp-ready messaging
-4. Track outcomes across farmer portfolios and villages
+Secondary beneficiaries:
+- Farmers receiving clearer, contextual recommendations
+- Institutions (FPOs, agri programs) needing traceable outcomes
 
-## Product Goals
+## 5. Product Concept and Theory of Change
 
-- Improve advisor productivity for large farmer portfolios
-- Reduce fertilizer inefficiency through optimized recommendations
-- Improve action completion via trusted advisor communication
-- Provide measurable pilot outcomes through dashboard metrics
+### Inputs
+- Farmer portfolio data
+- Soil test values
+- Weather forecasts
+- Advisor field notes
 
-## Core Modules and Pages
+### Process
+1. Identify priority farmers
+2. Generate crop-specific, cost-aware recommendations
+3. Deliver advisor-branded, actionable message
+4. Track confirmation and portfolio outcomes
 
-### 1. Intro and Story Flow (`/`)
-Purpose:
-- Onboarding storytelling for the product
-- Team visibility and mission context
-- Real-world scenario examples
+### Outputs
+- Faster response to high-risk cases
+- Better fertilizer decisions
+- Structured follow-up actions
 
-Key behavior:
-- Intro flow displays on every fresh app load
-- Team members appear with individual animations
-- Scenario block rotates automatically and can be manually selected
-- Buttons guide users into core modules
+### Outcomes
+- Reduced avoidable input spend
+- Higher recommendation follow-through
+- Improved expected yield bands
 
-### 2. FPO Command Center (`/portfolio`)
-Purpose:
-- Daily operations cockpit for field advisors
+## 6. End-to-End User Journey (Evaluation Narrative)
 
-Key sections:
-- Priority queue of farmers by urgency
-- KPI cards for managed farmers, urgent cases, adoption, savings
-- Village health visuals
-- Weather-aware irrigation advisory panel
-- WhatsApp dispatch actions
+1. Advisor enters the app and sees an operations command center.
+2. Priority queue highlights urgent farmers first.
+3. Advisor opens Farmer 360 view for context: profile, history, current risk.
+4. Soil values are entered or reviewed.
+5. System generates a recommendation with estimated savings and yield range.
+6. Advisor sends guidance through WhatsApp-style output.
+7. Advisor tracks whether action was confirmed.
+8. Institution reviews village and portfolio-level impact in insights dashboard.
 
-### 3. Portfolio Live (`/portfolio-live`)
-Purpose:
-- Searchable, filterable list of managed farmers
+This journey is the core evaluation story from intervention to measurable effect.
 
-Key sections:
-- Status filters: all, green, yellow, red
-- Search by name, village, crop
-- Add farmer profile form
-- Quick status updates and profile navigation
+## 7. What Is Innovative Here
 
-### 4. Farmer 360 (`/farmer/:id`)
-Purpose:
-- Full farmer intelligence and action workspace
+- Advisor-centric workflow rather than farmer-only app design
+- Priority-first UI that matches field constraints
+- Soil recommendation flow tied to cost and actionability
+- Communication layer grounded in trusted advisor channel
+- Built-in pilot evidence generation for institutional decisions
 
-Key sections:
-- Profile summary, cluster context, risk status
-- Crop-stage guidance and recommended next action
-- Soil history timeline
-- Recommendation timeline with status flags
-- Quick actions (call, copy, reminder, edit, soil test)
+## 8. Modules and Pages (Concept + Function)
 
-### 5. Soil Intelligence (`/farmer/:id/soil`)
-Purpose:
-- Convert soil data into recommendation outputs
+### Intro and Story (`/`)
+Concept role:
+- Explain mission, team, and real-world scenarios quickly.
 
-Key sections:
-- Soil input fields (N, P, K, pH, EC, organic matter)
-- Recommendation generation and cost comparison
-- Expected yield range
-- WhatsApp message preview and copy flow
+### Command Center (`/portfolio`)
+Concept role:
+- Daily mission control for advisor workload and urgency management.
 
-### 6. Advisor Intelligence (`/insights`)
-Purpose:
-- Portfolio-level outcomes and pilot evidence
+### Portfolio Live (`/portfolio-live`)
+Concept role:
+- Operational list management for real-time filtering and updates.
 
-Key sections:
-- Aggregated performance metrics
-- Village-level breakdowns
-- Export capability for reports (CSV)
-- POC outcome snapshot cards
+### Farmer 360 (`/farmer/:id`)
+Concept role:
+- Unified decision context for one farmer before advisor action.
 
-## Navigation and Routing Summary
+### Soil Intelligence (`/farmer/:id/soil`)
+Concept role:
+- Translate lab inputs into practical recommendation outputs.
 
-- `/` -> Intro and onboarding flow
-- `/portfolio` -> Command Center
-- `/portfolio-live` -> Portfolio table/list operations
-- `/insights` -> Analytics and outcome layer
-- `/farmer/:id` -> Farmer 360 profile
-- `/farmer/:id/soil` -> Soil and recommendation flow
+### Advisor Intelligence (`/insights`)
+Concept role:
+- Convert individual actions into portfolio-level evidence.
 
-## Data Strategy
+## 9. Evaluation Framework (How to Judge Success)
 
-The app supports two global data modes:
-- `Demo Data` mode:
-  - Uses local mock datasets
-  - Enables complete UI flows without backend
-- `Live Data` mode:
-  - Uses backend API endpoints
-  - Requires API service availability
+### Operational KPIs
+- Time to identify top-priority farmers
+- Number of high-risk farmers handled per day
+- Recommendation turnaround time
 
-### Mock Coverage
+### Adoption KPIs
+- Recommendation sent rate
+- Confirmation rate after message delivery
+- Repeat usage by advisors
 
-Demo mode includes structured seed data for:
-- Farmers
-- Soil history
-- Recommendation timelines
-- Village distribution and status segmentation
+### Agronomic and Economic KPIs
+- Estimated input cost reduction per acre
+- Share of recommendations with expected yield improvement
+- Seasonal trend in risk status mix (red/yellow/green)
 
-## API Surface (Live Mode)
+### Institutional KPIs
+- Exportable reporting readiness
+- Village-level intervention visibility
+- Decision support usefulness for supervisors
 
-The frontend client integrates with endpoints for:
-- Auth
-- Farmer CRUD and status updates
-- Priority farmer retrieval
-- Soil test creation and history retrieval
-- Recommendation generation and lifecycle actions
-- Advisor-level statistics
+## 10. Pilot Design Suggestion
 
-Base URL expected by frontend:
-- `VITE_API_URL` (default pattern: `http://localhost:8000/api/v1`)
+Recommended pilot shape:
+- Duration: 8 weeks
+- Geography: 1 district, 2 to 3 advisor teams
+- Baseline period: first 1 to 2 weeks
+- Intervention period: remaining weeks
 
-## UI and Experience Highlights
+Suggested measurable checkpoints:
+- Week 2: prioritization accuracy and workflow usability
+- Week 4: recommendation delivery consistency
+- Week 6: farmer action confirmation trends
+- Week 8: cost/yield proxy impact and institutional feedback
 
-- Creative, advisor-centric interface design
-- Animated onboarding and scenario storytelling
-- Risk-first workflow emphasis
-- Data-rich cards and chart-driven summaries
-- Mobile-friendly responsive layout
+## 11. Assumptions, Risks, and Mitigation
 
-## Technology Stack
+Assumptions:
+- Advisors remain the trusted communication layer.
+- Soil data quality is reasonably usable.
+- Institutions value outcome dashboards.
 
-Frontend:
+Risks:
+- Backend downtime can limit live mode usage.
+- Data inconsistency can reduce analytics quality.
+- Workflow burden may increase if UI is not streamlined.
+
+Mitigation:
+- Demo mode ensures continuity for showcase and training.
+- Structured data validation and normalized village naming.
+- Clear quick actions and simplified advisor flow design.
+
+## 12. Ethical and Practical Considerations
+
+- Recommendations support advisors, not replace domain judgment.
+- Transparency in confidence and uncertainty is essential.
+- Data should be handled with institutional privacy safeguards.
+
+## 13. Scalability View
+
+Near-term scale path:
+- More villages -> more advisors -> larger portfolio coverage
+- Standardized dashboards for regional programs
+- Integration with institutional procurement and reporting workflows
+
+## 14. Team
+
+- Naveen Raj B
+- Arshiya Nasirin M
+- Kabilan M
+- Meganathan R
+- Latchana S
+
+## 15. Technical Appendix (Concise)
+
+Routes:
+- `/`
+- `/portfolio`
+- `/portfolio-live`
+- `/insights`
+- `/farmer/:id`
+- `/farmer/:id/soil`
+
+Data modes:
+- Demo mode for full workflow without backend
+- Live mode through API base URL (`VITE_API_URL`)
+
+Stack:
 - React + TypeScript + Vite
-- Tailwind CSS + component primitives
-- Framer Motion for animation
-- Recharts for visualization
-- React Query and Axios for data handling
+- Tailwind + component primitives
+- Framer Motion
+- Recharts
+- Axios + React Query
 
-Supporting:
-- ESLint and TypeScript checks
-- Vitest and Playwright configuration present
+## 16. Branch Note
 
-## Local Development (Reference)
-
-Typical workflow:
-1. Install dependencies
-2. Configure environment variables
-3. Start development server
-4. Switch between demo/live modes in header
-
-Core commands:
-- `npm install`
-- `npm run dev`
-- `npm run build`
-- `npm run test`
-
-## Environment Variables
-
-Expected frontend env entries:
-- `VITE_API_URL`
-- `VITE_APP_NAME`
-- `VITE_APP_DESCRIPTION`
-
-## Known Operational Notes
-
-- Live mode requires backend service health
-- If backend is unavailable, use Demo mode for complete experience coverage
-- Weather panel relies on Open-Meteo fetch and falls back gracefully when unavailable
-
-## Current Documentation Branch Constraint
-
-This branch intentionally includes only one file:
-- `README.md`
-
-No application source files are included here by design.
+This branch was created specifically for evaluation documentation.
+Only this README file is intentionally included.
